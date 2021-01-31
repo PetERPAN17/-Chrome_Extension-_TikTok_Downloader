@@ -1,0 +1,22 @@
+{
+  "name": "TikTok Downloader",
+  "description": "Selected video on TikTok and download them.",
+  "version": "0.1",
+  "manifest_version": 2,
+  "minimum_chrome_version": "16.0.884",
+  "browser_action": {
+    "default_popup": "tiktok_downloader.html",
+    "default_icon": "tiktok_downloader.png"
+  },
+  "permissions": [
+  	"downloads", "<all_urls>"
+  ],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "MacCtrl+Shift+F"
+      }
+    }
+  }
+}
