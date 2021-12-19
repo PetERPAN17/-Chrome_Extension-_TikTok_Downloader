@@ -32,7 +32,12 @@ filename = filename[0].innerText;
 var account = document.getElementsByClassName('user-username');
 account = account[0].innerText;
 var videoText = document.getElementsByClassName('video-meta-title');
-videoText = videoText[0].innerText;
+if (videoText.length !== 0) {
+    videoText = videoText[0].innerText;
+} else {
+    videoText = '';
+}
+
 
 // recombination filename
 var recombFilename = function(filename,seperate_str){
@@ -55,10 +60,10 @@ if(filename_arr[1].indexOf('分前') >= 0){
     setNewDate = true;
 }else if(filename_arr[1].indexOf('日前') >= 0){
     var getMinusDate = Number(filename_arr[1].replace(/日前/g, ''));
-    now.setDate(now.getDate() - getMinusDate - 1);
+    now.setDate(now.getDate() - getMinusDate);
     setNewDate = true;
 }else if(filename_arr[1].indexOf('週間前') >= 0){
-    now.setDate(now.getDate() - 7 - 1);
+    now.setDate(now.getDate() - 7);
     setNewDate = true;
 };
 if(setNewDate){
