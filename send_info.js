@@ -27,23 +27,23 @@ var yearCounter = function(str,year){
     return str.split(year).length - 1;
 }
 
-var filename = document.getElementsByClassName('user-nickname');
-filename = filename[0].innerText;
-var account = document.getElementsByClassName('user-username');
-account = account[0].innerText;
-var videoText = document.getElementsByClassName('video-meta-title');
-if (videoText.length !== 0) {
-    videoText = videoText[0].innerText;
-} else {
-    videoText = '';
+var filename = document.querySelector('[data-e2e="browser-nickname"]');
+filename = filename.innerText;
+var account = document.querySelector('[data-e2e="browse-username"]');
+account = account.innerText;
+var videoDecriptionElements = document.querySelector('[data-e2e="browse-video-desc"]').querySelectorAll("span, strong");
+videoText = '';
+if (videoDecriptionElements.length !== 0) {
+    for (var node of videoDecriptionElements) {
+        videoText += node.innerText;
+    }
 }
-
 
 // recombination filename
 var recombFilename = function(filename,seperate_str){
     return filename.split(seperate_str);
 }
-var filename_arr = recombFilename(filename, ' · ');
+var filename_arr = recombFilename(filename, '\n·\n');
 
 var now = new Date();
 
