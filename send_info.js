@@ -73,7 +73,7 @@ if(setNewDate){
 // check filename
 function checkFilename(filename){
     // var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
-    var special_pattern = /[~!;:?🧏🏼‍♀️*"]/gi;
+    var special_pattern = /[~!;:?🧏🏼‍♀️*"\/]/gi;
     if( special_pattern.test(filename) == true ){
         // filename = str.replace(/[`~!@#$%^&*|\\\'\";:\/?]/gi, '');
         filename = filename.replace(special_pattern, '');
