@@ -8,6 +8,13 @@ src = src.map(function(element) {
   return src;
 });
 
+// Create video div for download
+var mainContainer = window.document.querySelector(".tiktok-1h8ubbu-DivMainContent");
+var videoDiv = window.document.createElement('video');
+videoDiv.src = src[0];
+videoDiv.style.height = '100px';
+mainContainer.insertBefore(videoDiv, null);
+
 src.sort();
 
 // Remove duplicates and invalid URLs.
