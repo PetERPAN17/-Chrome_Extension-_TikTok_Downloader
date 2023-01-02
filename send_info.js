@@ -1,33 +1,24 @@
-var src = [].slice.apply(document.getElementsByTagName('video'));
+var src = [].slice.apply(window.document.querySelectorAll('video'));
 src = src.map(function(element) {
-  var src = element.src;
-  var hashIndex = src.indexOf('#');
-  if (hashIndex >= 0) {
-    src = src.substr(0, hashIndex);
-  }
-  return src;
+    if (element.getAttribute('type') !== 'add') {
+        var src = element.src;
+        var hashIndex = src.indexOf('#');
+        if (hashIndex >= 0) {
+            src = src.substr(0, hashIndex);
+        }
+    }
+    return src;
 });
+
+src = [src[0]];
 
 // Create video div for download
 var mainContainer = window.document.querySelector(".tiktok-1h8ubbu-DivMainContent");
 var videoDiv = window.document.createElement('video');
+videoDiv.setAttribute('type', 'add');
 videoDiv.src = src[0];
 videoDiv.style.height = '100px';
 mainContainer.insertBefore(videoDiv, null);
-
-src.sort();
-
-// Remove duplicates and invalid URLs.
-var kBadPrefix = 'javascript';
-for (var i = 0; i < src.length;) {
-  if (((i > 0) && (src[i] == src[i - 1])) ||
-      (src[i] == '') ||
-      (kBadPrefix == src[i].toLowerCase().substr(0, kBadPrefix.length))) {
-    src.splice(i, 1);
-  } else {
-    ++i;
-  }
-}
 
 // Count Year include str
 var yearCounter = function(str,year){
